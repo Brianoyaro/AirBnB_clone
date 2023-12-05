@@ -36,4 +36,3 @@ Here are some examples of commands and their expected output:
    **Output**: Displays detailed information about the specified object.
 
 <!-- Add more examples as needed -->
-
