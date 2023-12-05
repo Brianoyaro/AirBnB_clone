@@ -22,10 +22,8 @@ class FileStorage:
         id-> <obj class_name>.id
         value->obj
         """
-        key1 = obj.class_name
-        key2 = obj.id
-        finalkey = str(key1) + "." + str(key2)
-        self.__objects[finalkey] = obj
+        key = f"{obj.__class__.__name__}.{obj.id}"
+        self.__objects[key] = obj
 
     def save(self):
         """ serializes __objects to the JSON file
