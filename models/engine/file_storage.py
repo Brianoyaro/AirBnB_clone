@@ -4,8 +4,8 @@
 
 
 import json
-from models.base_model import BaseModel
-from models.user import User
+#from models.base_model import BaseModel
+#from models.user import User
 
 class FileStorage:
     __file_path = "file.json"
@@ -24,8 +24,10 @@ class FileStorage:
             json.dump(serialized_objects, file)
 
     def reload(self):
+        from models.base_model import BaseModel
+        from models.user import User
         classes = {
-            "BaseModel": BaseModel,
+           "BaseModel": BaseModel,
             "User": User,
         }
         try:

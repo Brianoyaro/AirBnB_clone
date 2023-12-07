@@ -4,14 +4,12 @@
 import uuid
 from datetime import datetime
 from models.engine.file_storage import FileStorage
-
-storage = FileStorage()
-storage.reload()
+from models import storage
 
 class BaseModel:
     """BaseModel class
     """
-    #class_name = 'BaseModel'
+    class_name = 'BaseModel'
 
     def __init__(self, *args, **kwargs):
         """initialises each unique instance with a different
@@ -37,7 +35,7 @@ class BaseModel:
     def __str__(self):
         """returns a nicely printable instance
         """
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+        return "[{}] ({}) {}".format(self.class_name, self.id, self.__dict__)
 
     def save(self):
         """updates the instance variable when saving the instance
