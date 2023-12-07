@@ -4,6 +4,8 @@
 
 
 import json
+from models.base_model import BaseModel
+from models.user import User
 
 class FileStorage:
     __file_path = "file.json"
@@ -22,12 +24,17 @@ class FileStorage:
             json.dump(serialized_objects, file)
 
     def reload(self):
+        classes = {
+            "BaseModel": BaseModel,
+            "User": User,
+        }
         try:
             with open(self.__file_path, 'r') as file:
                 data = json.load(file)
                 for key, value in data.items():
                     class_name, obj_id = key.split('.')
-                    # Here, you'll need logic to dynamically create instances based on class_name and set their attributes from the dictionary 'value'
-                    # Example: Create instance, set attributes, and add to __objects dictionary
+                    if class_name in classes:
+                        obj = classes[class_name](**value)
+                        self.__objects[key] = obj
         except FileNotFoundError:
             pass  # If file doesn't exist, do nothing

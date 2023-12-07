@@ -11,7 +11,7 @@ storage.reload()
 class BaseModel:
     """BaseModel class
     """
-    class_name = 'BaseModel'
+    #class_name = 'BaseModel'
 
     def __init__(self, *args, **kwargs):
         """initialises each unique instance with a different
