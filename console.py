@@ -3,8 +3,8 @@
 """
 import cmd
 import json
-#from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
+from models import FileStorage
 
 storage = FileStorage()
 storage.reload()
@@ -115,11 +115,11 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
-        attribute_name = args[3]
+        attribute_name = args[2]
         try:
-            value = eval(args[4])
+            value = eval(args[3])
         except (NameError, SyntaxError):
-            value = args[4]
+            value = args[3]
         setattr(objects[key], attribute_name, value)
         storage.save()
 
