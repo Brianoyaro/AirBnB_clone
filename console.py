@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if args[0] not in ['BaseModel', 'User']:
+        if args[0] not in ['BaseModel', 'User','State', 'City', 'Amenity', 'Place', 'Review']:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -62,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if args[0] not in ['BaseModel', 'User']:
+        if args[0] not in ['BaseModel', 'User','State', 'City', 'Amenity', 'Place', 'Review']:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -85,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
             return
         try:
             arg_class = eval(arg)
-            if arg_class.__name__ not in ['BaseModel', 'User']:
+            if arg_class.__name__ not in ['BaseModel', 'User','State', 'City', 'Amenity', 'Place', 'Review']:
                 print("** class doesn't exist **")
                 return
             print([str(obj) for key, obj in objects.items() if key.split('.')[0] == arg_class.__name__])
@@ -98,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if args[0] not in ['BaseModel','User']:
+        if args[0] not in ['BaseModel','User','State', 'City', 'Amenity', 'Place', 'Review']:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
