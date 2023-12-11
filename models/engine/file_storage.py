@@ -47,4 +47,5 @@ class FileStorage:
                         obj = classes[class_name](**value)
                         self.__objects[key] = obj
         except FileNotFoundError:
-            pass  # If file doesn't exist, do nothing
+            pass  
+        # If file doesn't exist, do nothing
